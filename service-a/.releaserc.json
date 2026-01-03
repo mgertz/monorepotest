@@ -25,7 +25,7 @@
       "@semantic-release/exec",
       {
         "prepareCmd": "echo 'Preparing release ${nextRelease.version}'",
-        "publishCmd": "docker buildx build --platform linux/amd64,linux/arm64 --tag ghcr.io/${DOCKER_IMAGE_NAME}:${nextRelease.version} --tag ghcr.io/${DOCKER_IMAGE_NAME}:latest --push ."
+        "publishCmd": "docker buildx build --platform linux/amd64,linux/arm64 --tag ghcr.io/mgertz/monorepotest/service-a:${nextRelease.version} --tag ghcr.io/mgertz/monorepotest/service-a:latest --push ."
       }
     ]
   ]
