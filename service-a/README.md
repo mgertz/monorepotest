@@ -1,3 +1,4 @@
 # Service A
 
-This is the main service
+This is the main service.
+
