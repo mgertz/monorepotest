@@ -1,6 +1,6 @@
 {
   "branches": ["main"],
-  "tagFormat": "agent_kubernetes/v${version}",
+  "tagFormat": "service-a/v${version}",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
@@ -17,7 +17,10 @@
     [
       "@semantic-release/release-notes-generator",
       {
-        "preset": "conventionalcommits"
+        "preset": "conventionalcommits",
+        "writerOpts": {
+          "committerDate": false
+        }
       }
     ],
     [
