@@ -15,12 +15,6 @@
       }
     ],
     [
-      "@semantic-release/release-notes-generator",
-      {
-        "preset": "conventionalcommits"
-      }
-    ],
-    [
       "@semantic-release/github",
       {
         "successComment": false,
