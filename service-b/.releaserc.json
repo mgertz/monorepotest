@@ -1,0 +1,38 @@
+{
+  "branches": ["main"],
+  "tagFormat": "agent_kubernetes/v${version}",
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits",
+        "releaseRules": [
+          { "type": "feat", "release": "minor" },
+          { "type": "fix", "release": "patch" },
+          { "type": "perf", "release": "patch" },
+          { "breaking": true, "release": "major" }
+        ]
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "successComment": false,
+        "failComment": false
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "echo 'Preparing release ${nextRelease.version}'",
+        "publishCmd": "docker buildx build --platform linux/amd64,linux/arm64 --tag ghcr.io/${DOCKER_IMAGE_NAME}:${nextRelease.version} --tag ghcr.io/${DOCKER_IMAGE_NAME}:latest --push ."
+      }
+    ]
+  ]
+}
