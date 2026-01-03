@@ -1,6 +1,6 @@
 {
   "branches": ["main"],
-  "tagFormat": "agent_kubernetes/v${version}",
+  "tagFormat": "service-b/v${version}",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
